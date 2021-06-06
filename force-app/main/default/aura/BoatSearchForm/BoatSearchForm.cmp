@@ -1,19 +1,25 @@
 <aura:component>
-  <aura:attribute name="boatTypes" type="List" access="global" />
-  <aura:handler name="init" value="{!this}" action="{!c.loadBoatTypes}" />
+  <aura:attribute name="boatTypesList" type="String[]" access="global" />
+  <aura:attribute name="selectedBoatType" type="String" access="global" />
 
-  <lightning:layout horizontalAlign="space">
-    <lightning:layoutItem padding="around-small">
-      <lightning:select name="boatType" label="All Types"></lightning:select>
-      <!-- value is all the types plus blank at start-->
+  <lightning:layout horizontalAlign="center">
+    <lightning:layoutItem size="2" padding="around-small">
+      <lightning:select
+        name="boatType"
+        aura:id="boatType"
+        value="{!v.selectedBoatType}"
+        label=""
+      >
+        <option value="">All Types</option>
+      </lightning:select>
     </lightning:layoutItem>
 
-    <lightning:layoutItem>
-      <lightning:select name="search" label="Search" variant="blue" />
+    <lightning:layoutItem size="2" padding="around-small">
+      <lightning:button name="search" label="Search" variant="blue" />
     </lightning:layoutItem>
 
-    <lightning:layoutItem>
-      <lightning:select name="new" label="New" variant="white" />
+    <lightning:layoutItem size="2" padding="around-small">
+      <lightning:button name="new" label="New" variant="white" />
     </lightning:layoutItem>
   </lightning:layout>
 </aura:component>

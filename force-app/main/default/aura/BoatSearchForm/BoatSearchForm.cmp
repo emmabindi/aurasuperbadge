@@ -1,6 +1,7 @@
-<aura:component>
+<aura:component implements="force:hasRecordId,flexipage:availableForRecordHome">
   <aura:attribute name="boatTypesList" type="String[]" access="global" />
   <aura:attribute name="selectedBoatType" type="String" access="global" />
+  <aura:attribute name="newBoat" type="Boat__c" />
 
   <lightning:layout horizontalAlign="center">
     <lightning:layoutItem size="2" padding="around-small">
@@ -19,7 +20,12 @@
     </lightning:layoutItem>
 
     <lightning:layoutItem size="2" padding="around-small">
-      <lightning:button name="new" label="New" variant="white" />
+      <lightning:button
+        name="new"
+        label="New"
+        variant="white"
+        onclick="{!c.clickNew}"
+      />
     </lightning:layoutItem>
   </lightning:layout>
 </aura:component>
